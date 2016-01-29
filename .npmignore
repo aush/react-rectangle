@@ -1,10 +1,11 @@
 .babelrc
+.editorconfig
 .eslintignore
 .eslintrc
 .gitignore
 .npmignore
+karma*
 node_modules
 npm-debug.log
 src
-karma*
 webpack*
