@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const path = require('path');
 
 module.exports = config => {
@@ -9,10 +11,18 @@ module.exports = config => {
     // singleRun: false,
     autoWatch: false,
     singleRun: true,
-    browsers: [
+    browsers: process.env.TRAVIS ? [
+      'Chrome_travis_ci',
+    ] : [
       'Chrome',
-      'PhantomJS',
+      // 'PhantomJS',
     ],
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+    },
     files: [
       './tests/**/*.spec.js*',
     ],
@@ -34,6 +44,9 @@ module.exports = config => {
       node: {
         fs: 'empty',
       },
+      plugins: [
+        new webpack.IgnorePlugin(/ReactContext/),
+      ],
       resolve: { extensions: ['', '.js', '.jsx'] },
     },
     webpackMiddleware: {

@@ -4,6 +4,7 @@
 .eslintrc
 .gitignore
 .npmignore
+.travis.yml
 karma*
 node_modules
 npm-debug.log
