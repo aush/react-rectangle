@@ -6,7 +6,11 @@ module.exports = config => {
   config.set({
     basePath: '',
     frameworks: ['mocha'],
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage/',
+    },
     // autoWatch: true,
     // singleRun: false,
     autoWatch: false,
@@ -34,9 +38,16 @@ module.exports = config => {
       module: {
         loaders: [{
           test: /\.jsx?$/,
-          loaders: ['babel'],
+          loader: 'babel',
           include: [
             path.join(__dirname, 'tests'),
+            path.join(__dirname, 'src'),
+          ],
+        }],
+        postLoaders: [{
+          test: /\.jsx?$/,
+          loader: 'istanbul-instrumenter',
+          include: [
             path.join(__dirname, 'src'),
           ],
         }],

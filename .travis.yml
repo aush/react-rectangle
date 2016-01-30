@@ -5,3 +5,6 @@ before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+addons:
+  code_climate:
+    repo_token: 9cd3b9b86bd4a6cf8fce885c85cad2136a0f9d7e3a1156c92568303315adac46
