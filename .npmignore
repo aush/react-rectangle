@@ -8,4 +8,5 @@ karma*
 node_modules
 npm-debug.log
 src
+tests
 webpack*
