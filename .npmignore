@@ -5,6 +5,7 @@
 .gitignore
 .npmignore
 .travis.yml
+appveyor.yml
 coverage
 karma*
 node_modules
