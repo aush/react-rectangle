@@ -1,16 +1,12 @@
 const webpack = require('webpack');
-
 const path = require('path');
 
 module.exports = config => {
   config.set({
     basePath: '',
     frameworks: ['mocha'],
-    reporters: ['mocha', 'coverage'],
-    coverageReporter: {
-      type: 'lcov',
-      dir: 'coverage/',
-    },
+    reporters: process.env.CONTINUOUS_INTEGRATION ? ['mocha', 'coverage', 'coveralls'] : ['mocha', 'coverage'],
+    coverageReporter: process.env.CONTINUOUS_INTEGRATION ? { type: 'lcov', dir: 'coverage/' } : { type: 'html', dir: 'coverage/' },
     // autoWatch: true,
     // singleRun: false,
     autoWatch: false,
@@ -19,7 +15,6 @@ module.exports = config => {
       'Chrome_travis_ci',
     ] : [
       'Chrome',
-      // 'PhantomJS',
     ],
     customLaunchers: {
       Chrome_travis_ci: {
