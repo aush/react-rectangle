@@ -5,7 +5,7 @@ const SRC_DIR = path.join(__dirname, 'src');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.join(SRC_DIR, 'rectangle'),
+  entry: path.join(SRC_DIR, 'index'),
   output: {
     path: path.join(__dirname, 'dist', 'umd'),
     filename: 'index.js',
@@ -23,10 +23,8 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['babel'],
-      include: [
-        SRC_DIR,
-      ],
+      loader: 'babel',
+      include: SRC_DIR,
     }],
   },
   plugins: [

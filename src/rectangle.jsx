@@ -1,5 +1,8 @@
 import React from 'react';
-import _ from 'lodash/core';
+import isFinite from 'lodash.isfinite';
+import isArray from 'lodash.isarray';
+import isString from 'lodash.isstring';
+import isNaN from 'lodash.isnan';
 
 export default ({ aspectRatio = 1, children }) => {
   const multiplier = calculateAspectRatio(aspectRatio);
@@ -13,15 +16,15 @@ export default ({ aspectRatio = 1, children }) => {
 };
 
 const calculateAspectRatio = aspectRatio => {
-  if (_.isFinite(aspectRatio)) {
+  if (isFinite(aspectRatio)) {
     return 1 / aspectRatio;
-  } else if (_.isArray(aspectRatio) && aspectRatio[0] !== undefined && aspectRatio[1] !== undefined) {
+  } else if (isArray(aspectRatio) && aspectRatio[0] !== undefined && aspectRatio[1] !== undefined) {
     return aspectRatio[1] / aspectRatio[0];
   } else if (aspectRatio.width !== undefined && aspectRatio.height !== undefined) {
     return aspectRatio.height / aspectRatio.width;
-  } else if (_.isString(aspectRatio)) {
+  } else if (isString(aspectRatio)) {
     const parsedValue = Number.parseFloat(aspectRatio);
-    if (_.isNaN(parsedValue)) {
+    if (isNaN(parsedValue)) {
       throw new Error('Cannot parse input string: ' + aspectRatio);
     }
     return 1 / Number.parseFloat(aspectRatio);

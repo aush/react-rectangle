@@ -4,11 +4,12 @@
   "description": "react-rectangle",
   "scripts": {
     "clean": "rimraf dist/*",
-    "build:umd": "SET NODE_ENV=production && webpack --display-error-details --progress",
+    "build:umd": "webpack --display-error-details --progress",
     "build:es6": "mkdirp dist/es6 && ncp src/rectangle.jsx dist/es6/index.jsx",
-    "build": "npm run lint && npm run clean && npm run build:es6 && npm run build:umd",
+    "build": "SET NODE_ENV=production&& npm run lint && npm run test && npm run clean && npm run build:es6 && npm run build:umd",
     "lint": "eslint src/**/*.jsx",
-    "test": "karma start"
+    "test": "karma start",
+    "prepublish": "npm run build"
   },
   "main": "dist/umd/index.js",
   "repository": {
@@ -64,6 +65,12 @@
     "react": ">=0.14.0"
   },
   "dependencies": {
-    "lodash": "^4.1.0"
+    "lodash.isarray": "^4.0.0",
+    "lodash.isfinite": "^3.2.1",
+    "lodash.isnan": "^3.0.2",
+    "lodash.isstring": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=4.1.0"
   }
 }

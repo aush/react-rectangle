@@ -1,21 +1,23 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const _IS_CI_ = process.env.CONTINUOUS_INTEGRATION;
+const _IS_TRAVIS_CI_ = process.env.TRAVIS;
+const _IS_BUILDING_PACKAGE_ = process.env.NODE_ENV === 'production';
+
 module.exports = config => {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'source-map-support'],
-    reporters: process.env.CONTINUOUS_INTEGRATION ?
+    reporters: _IS_CI_ ?
       ['mocha', 'coverage', 'coveralls'] :
       ['mocha', 'coverage'],
-    coverageReporter: process.env.CONTINUOUS_INTEGRATION ?
+    coverageReporter: _IS_CI_ ?
       { type: 'lcov', dir: 'coverage/' } :
       { type: 'html', dir: 'coverage/' },
-    // autoWatch: true,
-    // singleRun: false,
-    autoWatch: false,
-    singleRun: true,
-    browsers: process.env.TRAVIS ?
+    autoWatch: _IS_CI_ ? false : false,
+    singleRun: (_IS_CI_ || _IS_BUILDING_PACKAGE_) ? true : false,
+    browsers: _IS_TRAVIS_CI_ ?
       ['Chrome_travis_ci'] :
       ['Chrome'],
     customLaunchers: {
