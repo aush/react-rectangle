@@ -11,10 +11,10 @@ module.exports = config => {
     coverageReporter: process.env.CONTINUOUS_INTEGRATION ?
       { type: 'lcov', dir: 'coverage/' } :
       { type: 'html', dir: 'coverage/' },
-    autoWatch: true,
-    singleRun: false,
-    // autoWatch: false,
-    // singleRun: true,
+    // autoWatch: true,
+    // singleRun: false,
+    autoWatch: false,
+    singleRun: true,
     browsers: process.env.TRAVIS ?
       ['Chrome_travis_ci'] :
       ['Chrome'],
