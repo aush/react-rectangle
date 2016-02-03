@@ -4,7 +4,7 @@
   "description": "react-rectangle",
   "scripts": {
     "clean": "rimraf dist/*",
-    "build:umd": "webpack --display-error-details --progress",
+    "build:umd": "SET NODE_ENV=production && webpack --display-error-details --progress",
     "build:es6": "mkdirp dist/es6 && ncp src/rectangle.jsx dist/es6/index.jsx",
     "build": "npm run lint && npm run clean && npm run build:es6 && npm run build:umd",
     "lint": "eslint src/**/*.jsx",
@@ -48,6 +48,7 @@
     "karma-coveralls": "^1.1.2",
     "karma-mocha": "^0.2.1",
     "karma-mocha-reporter": "^1.1.5",
+    "karma-source-map-support": "^1.1.0",
     "karma-webpack": "^1.7.0",
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
@@ -62,5 +63,7 @@
   "peerDependencies": {
     "react": ">=0.14.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.1.0"
+  }
 }

@@ -4,18 +4,20 @@ const path = require('path');
 module.exports = config => {
   config.set({
     basePath: '',
-    frameworks: ['mocha'],
-    reporters: process.env.CONTINUOUS_INTEGRATION ? ['mocha', 'coverage', 'coveralls'] : ['mocha', 'coverage'],
-    coverageReporter: process.env.CONTINUOUS_INTEGRATION ? { type: 'lcov', dir: 'coverage/' } : { type: 'html', dir: 'coverage/' },
-    // autoWatch: true,
-    // singleRun: false,
-    autoWatch: false,
-    singleRun: true,
-    browsers: process.env.TRAVIS ? [
-      'Chrome_travis_ci',
-    ] : [
-      'Chrome',
-    ],
+    frameworks: ['mocha', 'source-map-support'],
+    reporters: process.env.CONTINUOUS_INTEGRATION ?
+      ['mocha', 'coverage', 'coveralls'] :
+      ['mocha', 'coverage'],
+    coverageReporter: process.env.CONTINUOUS_INTEGRATION ?
+      { type: 'lcov', dir: 'coverage/' } :
+      { type: 'html', dir: 'coverage/' },
+    autoWatch: true,
+    singleRun: false,
+    // autoWatch: false,
+    // singleRun: true,
+    browsers: process.env.TRAVIS ?
+      ['Chrome_travis_ci'] :
+      ['Chrome'],
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',

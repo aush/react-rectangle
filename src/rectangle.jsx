@@ -1,14 +1,8 @@
 import React from 'react';
+import _ from 'lodash/core';
 
-export default ({ aspectRatio, children }) => {
-  let multiplier = 1;
-  if (aspectRatio !== undefined) {
-    if (aspectRatio[0] !== undefined && aspectRatio[1] !== undefined) {
-      multiplier = aspectRatio[1] / aspectRatio[0];
-    } else {
-      multiplier = 1 / aspectRatio;
-    }
-  }
+export default ({ aspectRatio = 1, children }) => {
+  const multiplier = calculateAspectRatio(aspectRatio);
 
   return (
     <div style={{ position: 'relative' }}>
@@ -17,3 +11,23 @@ export default ({ aspectRatio, children }) => {
     </div>
   );
 };
+
+const calculateAspectRatio = aspectRatio => {
+  if (_.isFinite(aspectRatio)) {
+    return 1 / aspectRatio;
+  } else if (_.isArray(aspectRatio) && aspectRatio[0] !== undefined && aspectRatio[1] !== undefined) {
+    return aspectRatio[1] / aspectRatio[0];
+  } else if (aspectRatio.width !== undefined && aspectRatio.height !== undefined) {
+    return aspectRatio.height / aspectRatio.width;
+  } else if (_.isString(aspectRatio)) {
+    const parsedValue = Number.parseFloat(aspectRatio);
+    if (_.isNaN(parsedValue)) {
+      throw new Error('Cannot parse input string: ' + aspectRatio);
+    }
+    return 1 / Number.parseFloat(aspectRatio);
+  }
+
+  throw new Error('Cannot parse props.aspectRatio: ' + aspectRatio);
+};
+
+export { calculateAspectRatio };
