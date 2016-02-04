@@ -4,11 +4,11 @@ import isArray from 'lodash.isarray';
 import isString from 'lodash.isstring';
 import isNaN from 'lodash.isnan';
 
-export default ({ aspectRatio = 1, children }) => {
+export default ({ aspectRatio = 1, children, ...rest }) => {
   const multiplier = calculateAspectRatio(aspectRatio);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} {...rest}>
       <div style={{ display: 'block', paddingTop: 100 * multiplier + '%' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, top: 0, right: 0 }}>{children}</div>
     </div>

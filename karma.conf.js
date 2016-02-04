@@ -15,7 +15,7 @@ module.exports = config => {
     coverageReporter: _IS_CI_ ?
       { type: 'lcov', dir: 'coverage/' } :
       { type: 'html', dir: 'coverage/' },
-    autoWatch: _IS_CI_ ? false : false,
+    autoWatch: _IS_CI_ ? false : true,
     singleRun: (_IS_CI_ || _IS_BUILDING_PACKAGE_) ? true : false,
     browsers: _IS_TRAVIS_CI_ ?
       ['Chrome_travis_ci'] :

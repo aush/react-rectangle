@@ -6,7 +6,7 @@ import Rectangle, { calculateAspectRatio } from '../src/rectangle';
 describe('Rectangle', () => {
   it('should exist', () => { expect(Rectangle).to.be.ok; });
 
-  describe('render', () => {
+  describe('exist', () => {
     const tree = sd.shallowRender(<Rectangle />);
     const vdom = tree.getRenderOutput();
 
