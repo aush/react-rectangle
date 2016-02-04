@@ -1,9 +1,11 @@
-[![npm version](https://img.shields.io/npm/v/react-rectangle.svg?style=flat-square)](https://www.npmjs.com/package/react-rectangle) [![Build Status](https://img.shields.io/travis/aush/react-rectangle.svg?style=flat-square)](https://travis-ci.org/aush/react-rectangle) [![Build status](https://img.shields.io/appveyor/ci/aush/react-rectangle.svg?style=flat-square)](https://ci.appveyor.com/project/aush/react-rectangle) [![Dependency Status](https://img.shields.io/david/aush/react-rectangle.svg?style=flat-square)](https://david-dm.org/aush/react-rectangle) [![devDependency Status](https://img.shields.io/david/dev/aush/react-rectangle.svg?style=flat-square)](https://david-dm.org/aush/react-rectangle#info=devDependencies) [![Coverage Status](https://img.shields.io/coveralls/aush/react-rectangle.svg?style=flat-square)](https://coveralls.io/github/aush/react-rectangle?branch=master)
+[![npm version](https://img.shields.io/npm/v/react-rectangle.svg?style=flat-square)](https://www.npmjs.com/package/react-rectangle) [![Build Status](https://img.shields.io/travis/aush/react-rectangle.svg?style=flat-square)](https://travis-ci.org/aush/react-rectangle) [![Build status](https://img.shields.io/appveyor/ci/aush/react-rectangle.svg?style=flat-square)](https://ci.appveyor.com/project/aush/react-rectangle) [![Dependency Status](https://img.shields.io/david/aush/react-rectangle.svg?style=flat-square)](https://david-dm.org/aush/react-rectangle) [![devDependency Status](https://img.shields.io/david/dev/aush/react-rectangle.svg?style=flat-square)](https://david-dm.org/aush/react-rectangle#info=devDependencies) [![Coverage Status](https://img.shields.io/coveralls/aush/react-rectangle.svg?style=flat-square)](https://coveralls.io/github/aush/react-rectangle?branch=master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/aush/react-rectangle/master/LICENSE)
 
 #React Rectangle
 A very simple React component which provides a box with fixed aspect ratio.
 ###Install
 `npm install --save react-rectangle`
+
+Don't forget to manually install React^0.14 (peer dependency) if you're  using npm@3.
 ###Use
 #####ES6
 ```javascript
@@ -48,3 +50,5 @@ npm run build
 npm start
 ```
 Resize your browser's windows to see the component in action.
+###Codepen example
+http://codepen.io/aush/pen/OMorPv
