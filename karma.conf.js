@@ -9,7 +9,7 @@ module.exports = config => {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'source-map-support'],
-    reporters: _IS_CI_ ?
+    reporters: _IS_TRAVIS_CI_ ?
       ['mocha', 'coverage', 'coveralls'] :
       ['mocha', 'coverage'],
     coverageReporter: _IS_CI_ ?
