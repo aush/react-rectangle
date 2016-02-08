@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Rectangle from '../../dist/umd/index';
+import Rectangle from '../../dist/index';
 
 ReactDOM.render(
   <div className="container" style={{ background: '#9e9e9e', width: '100vw', height: '50vh' }}>

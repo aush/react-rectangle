@@ -5,9 +5,9 @@ const SRC_DIR = path.join(__dirname, 'src');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.join(SRC_DIR, 'index'),
+  entry: path.join(__dirname, 'index'),
   output: {
-    path: path.join(__dirname, 'dist', 'umd'),
+    path: path.join(__dirname, 'dist'),
     filename: 'index.js',
     library: 'ReactRectangle',
     libraryTarget: 'umd',
@@ -24,7 +24,10 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: SRC_DIR,
+      include: [
+        SRC_DIR,
+        path.join(__dirname, 'index'),
+      ],
     }],
   },
   plugins: [

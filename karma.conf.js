@@ -27,10 +27,10 @@ module.exports = config => {
       },
     },
     files: [
-      './tests/**/*.spec.js*',
+      './test/**/*.spec.js*',
     ],
     preprocessors: {
-      './tests/**/*.spec.js*': ['webpack'],
+      './test/**/*.spec.js*': ['webpack'],
     },
     webpack: {
       devtool: 'inline-source-map',
@@ -39,7 +39,7 @@ module.exports = config => {
           test: /\.jsx?$/,
           loader: 'babel',
           include: [
-            path.join(__dirname, 'tests'),
+            path.join(__dirname, 'test'),
             path.join(__dirname, 'src'),
           ],
         }],

@@ -5,21 +5,20 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "build:umd": "webpack --display-error-details --progress",
-    "build:es6": "mkdirp dist/es6 && ncp src/rectangle.jsx dist/es6/index.jsx",
     "build": "better-npm-run build",
-    "lint": "eslint src/**/*.jsx",
+    "lint": "eslint src/**/*.js*",
     "test": "karma start",
     "prepublish": "npm run build"
   },
   "betterScripts": {
     "build": {
-      "command": "npm run lint && npm run test && npm run clean && npm run build:es6 && npm run build:umd",
+      "command": "npm run lint && npm run test && npm run clean && npm run build:umd",
       "env": {
         "NODE_ENV": "production"
       }
     }
   },
-  "main": "dist/umd/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/aush/react-rectangle.git"
@@ -60,9 +59,7 @@
     "karma-mocha-reporter": "^1.1.5",
     "karma-source-map-support": "^1.1.0",
     "karma-webpack": "^1.7.0",
-    "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
-    "ncp": "^2.0.0",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
