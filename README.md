@@ -5,7 +5,7 @@ A very simple React component which provides a box with fixed aspect ratio.
 ###Install
 `npm install --save react-rectangle`
 
-Don't forget to manually install React^0.14 (peer dependency) if you're  using npm@3.
+Don't forget to manually install React^0.14 (peer dependency) if you're using npm@3.
 ###Use
 #####ES6
 ```javascript
