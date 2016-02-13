@@ -1,6 +1,6 @@
 {
   "name": "react-rectangle",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A simple box with fixed aspect ratio",
   "scripts": {
     "clean": "rimraf dist/*",
